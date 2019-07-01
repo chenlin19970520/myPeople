@@ -20,6 +20,7 @@
           class="button--grey"
         >GitHub</a>
       </div>
+      <el-button type="warning">警告</el-button>
     </div>
   </div>
 </template>
