@@ -2,37 +2,32 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">
-        chenlin
-      </h1>
-      <h2 class="subtitle">
-        我的个人网站
-      </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
-      <el-button type="warning">警告</el-button>
+      <div style="height:1rem;"></div>
+      <el-button type @click="submit">登录</el-button>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from "~/components/Logo.vue";
 
 export default {
   components: {
     Logo
+  },
+  methods: {
+    async login(token) {
+      await this.$store.dispatch("login", { token: "123456" });
+    },
+    submit() {
+      this.login();
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -46,8 +41,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
